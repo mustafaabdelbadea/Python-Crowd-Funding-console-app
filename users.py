@@ -5,7 +5,7 @@ import time
 
 def register():
     email = "" 
-    users = readFromFile("users.txt")
+    users = readFromFile("./data/users.txt")
     while True:
         isFound = False
         email = validateEmail()
@@ -27,14 +27,14 @@ def register():
 
 
 
-    content = f"{id}:{email}:password:{firstName}:{lastName}:{phone}\n"
-    writeIntoFile("users.txt",content)
+    content = f"{id}:{email}:{password}:{firstName}:{lastName}:{phone}\n"
+    writeIntoFile("./data/users.txt",content)
 
 
 def login():
     email = validateEmail()
     password = validatePassword()
-    users = readFromFile("users.txt")
+    users = readFromFile("./data/users.txt")
     isFound = False
     for user in users:
         if email == user.strip("\n").split(":")[1] and  password == user.strip("\n").split(":")[2]: 

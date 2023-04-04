@@ -21,3 +21,14 @@ def writeIntoFile(file, content):
         fileObj.writelines(content)
         fileObj.close()
         print("Data Added Successfully")
+
+def overwrite(file, content):
+    try:
+        fileObj = open(file, 'w')
+        pass
+    except Exception as e:
+        print(e)
+    else: 
+        fileObj.writelines(content)
+        fileObj.close()
+        print("Data Added Successfully")

@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 
 def validateString(labelName):
@@ -59,3 +60,19 @@ def validatePhone():
         else:
             continue
     return value
+
+
+def validateDate(label):
+    test_str = 'dd-mm-YYYY'
+    date=""
+    format = "%d-%m-%Y"
+    res = False
+    while True :
+        date = input(f"Enter {label} in this format {test_str} ")
+        try:
+            res = bool(datetime.strptime(date, format))
+        except ValueError:
+            print(ValueError)
+        if res == True:
+            break
+    return date
